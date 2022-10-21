@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Glory:wght@400;500;600;700&display=swap');
+@import './Slick.scss';
+@import './Reset.scss';
+@import './MainImg.scss';
+
+* {
+    font-family: 'Gilroy', sans-serif;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
