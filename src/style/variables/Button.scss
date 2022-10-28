@@ -1,0 +1,37 @@
+.button {
+    border-radius: 4px;
+    background-color: #ffe4e4;
+    border: none;
+    text-align: center;
+    font-size: 26px;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 7px 11px 15px rgb(0 0 0 / 20%);
+    display: block;
+    margin: 0 auto;
+    margin-top: 40px;
+    position: relative;
+    transition: 0.5s;
+    &::after{
+        content: '»';
+        position: absolute;
+        opacity: 0;  
+        top: 10px;
+        right: -20px;
+        transition: 0.5s;
+    }
+    &:hover {
+        padding-right: 40px;
+    }
+    &:hover:after {
+        opacity: 1;
+        right: 16px;
+    }
+    &_small {
+        margin: 20px 0 0 0;
+        width: 150px;
+        height: 40px;
+        font-size: 18px;
+    }
+}

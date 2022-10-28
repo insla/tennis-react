@@ -1,0 +1,23 @@
+.up {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: #ffe4e4;
+    border-radius: 10px;
+    border: 0;
+    cursor: pointer;
+    font-size: 26px;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    i {
+        opacity: 1;
+    }
+    &:hover {
+        opacity: 1;
+    }
+}

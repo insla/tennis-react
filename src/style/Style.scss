@@ -1,6 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Glory:wght@400;500;600;700&display=swap');
-@import './Slick.scss';
-@import './Reset.scss';
+@import '../style/libs/Fonts.scss';
+@import '../style/libs/Slick.scss';
+@import '../style/libs/Reset.scss';
+@import '../style/variables/Button.scss';
+@import '../style/variables/Icons.scss';
+@import '../style/variables/Title.scss';
+@import '../style/variables/Up.scss';
 @import './MainImg.scss';
 
 * {

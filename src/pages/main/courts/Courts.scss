@@ -1,0 +1,31 @@
+.courts {
+    margin-top: 175px;
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    &__item {
+        width: 350px;
+        height: 450px;
+        box-shadow: 18px 15px 15px rgba(0, 0, 0, .30);
+        overflow: hidden;
+        p{
+            position: relative;
+            font-size: 27px;
+            font-weight: 700;
+            color: #fff;
+            bottom: 25%;
+            text-align: center;
+        }
+    }
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 1s;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}

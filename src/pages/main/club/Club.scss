@@ -1,0 +1,47 @@
+.club {
+    margin-top: 150px;
+    &__img {
+        width: 526px;
+        height: 514px;      
+        display: inline-block;
+        position: relative;
+        top: 70px;
+        left: 86px;
+        z-index: 10;
+        box-shadow: 7px 11px 15px rgb(0 0 0 / 20%);
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__info {
+        position: relative;
+        display: inline-block;
+        width: 615px;
+        min-height: 654px;
+        background: #F7ECE1;
+        padding: 70px 60px 20px 146px;
+        h2{
+            font-size: 36px;
+            font-weight: 500;
+        }
+        p{
+            font-size: 16px;
+            font-weight: 400;
+            margin-top: 25px;
+        }
+        h3{
+            font-size: 21px;
+            font-weight: 600;
+            margin-top: 35px;
+        }
+        ul{
+            font-size: 16x;
+            font-weight: 400;
+            margin-top: 25px;
+        }
+        li{
+            margin-top: 15px;
+        }
+    }
+}

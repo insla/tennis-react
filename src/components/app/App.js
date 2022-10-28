@@ -1,10 +1,9 @@
-import '../../style/Style.scss';
-import Header from "../header/Header";
+import Main from "../../pages/main/Main";
 
 function App() {
   return (
     <>
-      <Header/>
+      <Main/>
     </>
   );
 }
