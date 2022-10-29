@@ -1,5 +1,8 @@
 .coach {
     margin-top: 150px;
+    .slick-list {
+        margin-top: 70px;
+    }
     .slick-track .slick-slide {
         display: flex;
         justify-content: center;
@@ -35,7 +38,7 @@
         left: 50%;
         transform: translateX(-50%);
         bottom: -14%;
-        
+        width: 300px;
         button {
             width: 20px;
             height: 20px;            
@@ -86,6 +89,4 @@
     &__wrapper {
         width: 300px;
     }
-    
-    
 }
