@@ -1,3 +1,9 @@
+.header, .navigation{
+    background: url('../../../resources/img/main_page/main.jpeg') center (center/cover) no-repeat;
+    // background-size: 100%;
+    background-attachment: fixed;
+}
+
 .header{
     padding: 100px 0 ;
     margin-bottom: 100px;
