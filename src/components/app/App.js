@@ -1,17 +1,22 @@
 import  {BrowserRouter as Router, Route, Routes} from "react-router-dom"
-import Main from "../../pages/main/Main";
+import { lazy, Suspense } from 'react'
 import Layout from "../layout/Layout";
-import About from "../../pages/about/About";
+import Spinner from "../spinner/Spinner";
+
+const Main = lazy(() => import ('../../pages/main/Main'));
+const About = lazy(() => import ('../../pages/about/About'));
 
 function App() {
   return (
     <Router>
       <div className="app">
         <Layout>
-          <Routes>
-            <Route path="/" element={<Main/>}/>
-            <Route path="/about" element={<About/>}/>
-          </Routes>
+          <Suspense fallback={<Spinner/>}>
+            <Routes>
+              <Route path="/" element={<Main/>}/>
+              <Route path="/about" element={<About/>}/>
+            </Routes>
+          </Suspense>
         </Layout>
       </div>
     </Router>

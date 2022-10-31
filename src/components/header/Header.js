@@ -8,19 +8,9 @@ import { NavLink, useLocation } from 'react-router-dom';
 
 
 const Header = () => {
+    window.scrollTo(0, 0)
     const path = useLocation().pathname
     const location = path.split("/")[1]
-    let sizeSection = '';
-
-    if(location === '') {
-        sizeSection = ''
-    } else {
-        sizeSection = 'heading_size'
-    }
-
-    if(location === 'kids' || location === 'personal' || location === 'group') {
-
-    }
 
     const setContent = (text) => {
         switch (text) {
@@ -49,54 +39,53 @@ const Header = () => {
             <nav className={`navigation navigation_${location}`}>
                 <div className="container">
                     <div className="navigation__wrapper">
-                        <a href="#" className="navigation__logo"><img src={logo} alt="logo"/></a>
+                        <NavLink to='/' className="navigation__logo">
+                            <img src={logo} alt="logo"/>
+                        </NavLink>
                         <ul className="menu">
                             <li className="menu__item">
-                                <NavLink to='/' className='menu__link' end activeclassName='active'>
+                                <NavLink to='/' end className={({isActive}) => (isActive ? 'menu__link active' : 'menu__link')}>
                                     Главная
                                 </NavLink>
                             </li>
                             <li className="menu__item">
-                                <NavLink to='/about' className='menu__link' activeclassName='active'>
+                                <NavLink to='/about' className={({isActive}) => (isActive ? 'menu__link active' : 'menu__link')}>
                                     О клубе
                                 </NavLink>
                             </li>
                             <li className="menu__item menu__item-drop-li">
-                                {/* <NavLink to='/assist' className='menu__link' activeclassName='active'>
-                                    Услуги
-                                </NavLink> */}
                                 <a className={`menu__link ${location === 'kids' || location === 'personal' || location === 'group' ? 'active' : ''}`} href="#">Услуги</a>
                                 <img src={arrowDown} alt="arrow-down"/>
                                 <ul className="menu__dropdown">
                                     <li className="menu__item-dropdown">
-                                        <NavLink to='/kids' className='menu__link' activeclassName='active'>
+                                        <NavLink to='/kids' className={({isActive}) => (isActive ? 'menu__link active' : 'menu__link')}>
                                             Тренировки для детей
                                         </NavLink>
                                     </li>
                                     <li className="menu__item-dropdown">
-                                        <NavLink to='/personal' className='menu__link' activeclassName='active'>
+                                        <NavLink to='/personal' className={({isActive}) => (isActive ? 'menu__link active' : 'menu__link')}>
                                             Персональные тренировки
                                         </NavLink>
                                     </li>
                                     <li className="menu__item-dropdown">
-                                        <NavLink to='/group' className='menu__link' activeclassName='active'>
+                                        <NavLink to='/group' className={({isActive}) => (isActive ? 'menu__link active' : 'menu__link')}>
                                             Групповые тренировки
                                         </NavLink>
                                     </li>
                                 </ul>
                             </li>
                             <li className="menu__item">
-                                <NavLink to='/price' className='menu__link' activeclassName='active'>
+                                <NavLink to='/price' className={({isActive}) => (isActive ? 'menu__link active' : 'menu__link')}>
                                     Цена
                                 </NavLink>
                             </li>
                             <li className="menu__item">
-                                <NavLink to='/news' className='menu__link' activeclassName='active'>
+                                <NavLink to='/news' className={({isActive}) => (isActive ? 'menu__link active' : 'menu__link')}>
                                     Новости
                                 </NavLink>
                             </li>
                             <li className="menu__item">
-                                <NavLink to='/contacts' className='menu__link' activeclassName='active'>
+                                <NavLink to='/contacts' className={({isActive}) => (isActive ? 'menu__link active' : 'menu__link')}>
                                     Контакты
                                 </NavLink>
                             </li>
@@ -115,7 +104,7 @@ const Header = () => {
                 <div className="navigation__line"></div>
             </nav>
 
-            <section className={`heading heading_${location} ${sizeSection}`}>
+            <section className={`heading heading_${location} ${location === '' ? '' : 'heading_size'}`}>
                 <div className="container">
                     { location === '' ? (
                         <>

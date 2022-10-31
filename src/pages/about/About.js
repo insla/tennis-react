@@ -1,9 +1,9 @@
-import Club from '../main/club/Club';
+import Slider from "./slider/Slider";
 
 const About = () => {
     return (
         <>
-            <Club/>
+            <Slider/>
         </>
     )
 }

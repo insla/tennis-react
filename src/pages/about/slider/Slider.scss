@@ -1,0 +1,47 @@
+.slider {
+    margin-top: 100px;
+    &__wrapper {
+        display: flex;
+        width: 100%;
+        padding: 0 20px;
+        margin-top: 50px;
+    }
+    &__slide {
+        height: 600px;
+        border-radius: 20px;
+        margin: 10px;
+        cursor: pointer;
+        flex: 1;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        transition: all 500ms ease-in-out;
+        h3 {
+            position: absolute;
+            bottom: 20px;
+            font-size: 30px;
+            font-weight: 600;
+            color: #fff;
+            left: 20px;
+            margin: 0;
+            opacity: 0;
+        }
+        &_1 {
+            background-image: url('../../../resources/img/about/ground.jpg')
+        }
+        &_2 {
+            background-image: url('../../../resources/img/about/grass.jpg')
+        }
+        &_3 {
+            background-image: url('../../../resources/img/about/hard.jpg')
+        }
+        &_active {
+            flex: 10;
+            h3 {
+                opacity: 1;
+                transition: opacity 0.3s ease-in 0.4s;
+            }
+        }
+    }
+}

@@ -3,6 +3,7 @@ import logo from '../../resources/img/main_page/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube, faVk, faTelegram, faInstagram, faFacebook, faTwitter} from '@fortawesome/free-brands-svg-icons';
 import { faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -11,7 +12,9 @@ const Footer = () => {
                 <div className="container">
                     <div className="footer__line"></div>
                     <div className="footer__wrapper">
-                        <a href="index.html" className="navigation__logo"><img src={logo} alt="logo"/></a>
+                        <NavLink to='/' className="navigation__logo">
+                            <img src={logo} alt="logo"/>
+                        </NavLink>
                         <div className="footer__info">
                             <div className="footer__address">
                                 <a href="#" className="footer__link">
