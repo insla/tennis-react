@@ -1,0 +1,138 @@
+{
+    "coach" : [
+        {
+            "id" : 1,
+            "name" : "Pulvinar Aliquam",
+            "description" : "Arcu elit massa amet turpis vel consequat pellentesque sit.",
+            "img" : "coach/coach_1.jpg",
+            "altImg" : "coach_1"
+        },
+        {
+            "id" : 2,
+            "name" : "Pretium odio",
+            "description" : "Bibendum aliquam volutpat nisl a duis in nisi. In sed commodo lorem morbi quis.",
+            "img" : "coach/coach_2.jpg",
+            "altImg" : "coach_2"
+        },
+        {
+            "id" : 3,
+            "name" : "Aliquet Consectetur",
+            "description" : "Id sapien sed nibh fermentum massa posuere ipsum. Diam in.",
+            "img" : "coach/coach_3.jpg",
+            "altImg" : "coach_3"
+        },
+        {
+            "id" : 4,
+            "name" : "Blandit Augue",
+            "description" : "Scelerisque accumsan pretium justo, vitae elit. Dolor semper morbi sit auctor vel diam eros.",
+            "img" : "coach/coach_4.jpg",
+            "altImg" : "coach_4"
+        },
+        {
+            "id" : 5,
+            "name" : "Lorem Lacus",
+            "description" : "Adipiscing amet, viverra dignissim egestas. Sed nibh egestas venenatis faucibus.",
+            "img" : "coach/coach_5.jpg",
+            "altImg" : "coach_5"
+        },
+        {
+            "id" : 6,
+            "name" : "Sed Erat",
+            "description" : "Quis ullamcorper pretium lacus risus tellus dolor etiam.",
+            "img" : "coach/coach_6.jpg",
+            "altImg" : "coach_6"
+        }
+    ],
+
+    "price" : [
+        {   
+            "kids" : [
+                {
+                    "id" : 6,
+                    "price" : 3000,
+                    "time" : "60 минут",
+                    "title" : "ИНДИВИДУАЛЬНОЕ ЗАНЯТИЕ",
+                    "description" : {
+                        "string_1" : "РАЗОВОЕ ПОСЕЩЕНИЕ",
+                        "string_2" : "1 РЕБЕНОК — 1 ТРЕНЕР",
+                        "string_3" : "РАКЕТКА БЕСПЛАТНО"
+                    }
+                },
+                {
+                    "id" : 7,
+                    "price" : 1000,
+                    "time" : "60 минут",
+                    "title" : "РАЗОВОЕ ПОСЕЩЕНИЕ",
+                    "description" : {
+                        "string_1" : "ЗАНЯТИЕ В ГРУППЕ",
+                        "string_2" : "ГРУППА ИЗ 4-ЕХ ЧЕЛОВЕК",
+                        "string_3" : "РАКЕТКА БЕСПЛАТНО"
+                    }
+                }
+            ]
+        },
+        {
+            "personal" : [
+                {
+                    "id" : 1,
+                    "price" : 5000,
+                    "time" : "60 минут",
+                    "title" : "ИНДИВИДУАЛЬНОЕ ЗАНЯТИЕ",
+                    "description" : {
+                        "string_1" : "РАЗОВОЕ ПОСЕЩЕНИЕ",
+                        "string_2" : "1 КЛИЕНТ — 1 ТРЕНЕР",
+                        "string_3" : "РАКЕТКА БЕСПЛАТНО"
+                    }
+                },    
+                {
+                    "id" : 2,
+                    "price" : 5000,
+                    "time" : "60 минут",
+                    "title" : "СПЛИТ ЗАНЯТИЕ",
+                    "description" : {
+                        "string_1" : "РАЗОВОЕ ПОСЕЩЕНИЕ",
+                        "string_2" : "2 КЛИЕНТ — 1 ТРЕНЕР",
+                        "string_3" : "РАКЕТКА БЕСПЛАТНО"
+                    }
+                },
+                {
+                    "id" : 3,
+                    "price" : 18000,
+                    "time" : "ОТ 4-ЕХ ЗАНЯТЙ",
+                    "title" : "АБОНЕМЕНТ",
+                    "description" : {
+                        "string_1" : "ОДНО ЗАНЯТИЕ 60 МИНУТ",
+                        "string_2" : "ИНДИВИДУАЛЬНЫЙ ПОДХОД",
+                        "string_3" : "РАКЕТКА БЕСПЛАТНО"
+                    }
+                }
+            ]
+        },
+        {
+            "group" : [
+                {
+                    "id" : 4,
+                    "price" : 1500,
+                    "time" : "60 минут",
+                    "title" : "РАЗОВОЕ ПОСЕЩЕНИЕ",
+                    "description" : {
+                        "string_1" : "ЗАНЯТИЕ В ГРУППЕ",
+                        "string_2" : "ПЕРВАЯ ТРЕНИРОВКА 1000 ₽",
+                        "string_3" : "РАКЕТКА БЕСПЛАТНО"
+                    }
+                },
+                {
+                    "id" : 5,
+                    "price" : 6000,
+                    "time" : "ОТ 4-ЕХ ЗАНЯТЙ",
+                    "title" : "АБОНЕМЕНТ",
+                    "description" : {
+                        "string_1" : "ОДНО ЗАНЯТИЕ 60 МИН",
+                        "string_2" : "ГРУППА ДО 4-Х ЧЕЛОВЕК",
+                        "string_3" : "РАКЕТКА БЕСПЛАТНО"
+                    }
+                }
+            ]
+        }
+    ]
+}

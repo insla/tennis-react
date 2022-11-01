@@ -1,13 +1,8 @@
 import './Club.scss';
 import sportClub from '../../../resources/img/main_page/sport_club.png';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { useEffect } from 'react';
 
 const Club = () => {
-    useEffect(() => {
-        AOS.init();
-    }, [])
+    
     
     return (
         <section className="club">
