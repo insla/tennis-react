@@ -1,18 +1,30 @@
 import './Price.scss';
-import getResource from '../../services/Services';
+// import getResource from '../../services/Services';
+import useServices from '../../services/Services';
 import { useState, useEffect } from 'react';
 import Spinner from '../../components/spinner/Spinner';
+import ErrorMessage from '../../components/errorMessage/ErrorMessage';
+import ErrorBoundary from '../../components/errorBoundary/ErrorBoundary';
 
 const Price = () => {
-    const [cardPrice, setCardPrice] = useState([]);
+    const [cardPricePersonal, setCardPricePersonal] = useState([]);
+    const [cardPriceGroup, setCardPriceGroup] = useState([]);
+    const [cardPriceKids, setCardPriceKids] = useState([]);
+
+    const { getResource, error, loading } = useServices();
 
     useEffect(() => {
-        getResource('http://localhost:3001/price')
-        .then(data => setCardPrice(data))
-    }, [])
-    console.log(cardPrice[0].length)
-    // console.log(Object.keys(cardPrice[0]).length)
+        const test = (path, state) => {
+            getResource(`http://localhost:3001/${path}`)
+                .then(data => state(data))
+        }
 
+        test('pricePersonal' ,setCardPricePersonal)
+        test('priceGroup' ,setCardPriceGroup)
+        test('priceKids' ,setCardPriceKids)
+    }, [])
+
+    
     const renderContent = (data) => {
         return (
             data.map(item => {
@@ -40,51 +52,64 @@ const Price = () => {
         )
     } 
 
-    const pricePersonal = cardPrice.length === 0 ? <Spinner/> : renderContent(cardPrice[0].personal);
-    const priceGroup = cardPrice.length === 0 ? <Spinner/> : renderContent(cardPrice[1].group);
-    const priceKids = cardPrice.length === 0 ? <Spinner/> : renderContent(cardPrice[2].kids);
+    // const pricePersonal = loading ? <Spinner/> : renderContent(cardPricePersonal);
+    // const priceGroup = loading ? <Spinner/> : renderContent(cardPriceGroup);
+    // const priceKids = loading ? <Spinner/> : renderContent(cardPriceKids);
+
+    const spinner = loading ? <Spinner/> : null; 
+    const errorMessage = error ? <ErrorMessage/> : null;
+    const pricePersonal = renderContent(cardPricePersonal);
+    const priceGroup = renderContent(cardPriceGroup);
+    const priceKids = renderContent(cardPriceKids);
 
 
 
     return (
         <section className="price">
             <div className="container">
-                <div className="price__title-and-search">
-                    <div>
-                        <div className="price__title">ИНДИВИДУАЛЬНЫЕ ЗАНЯТИЯ
-                            <p>01</p>
+                <ErrorBoundary>
+                    <div className="price__title-and-search">
+                        <div>
+                            <div className="price__title">ИНДИВИДУАЛЬНЫЕ ЗАНЯТИЯ
+                                <p>01</p>
+                            </div>
                         </div>
+                        <div className="price__wrapper-for-search">
+                            <button className="price__button">ИНДИВИДУАЛЬНЫЕ </button>
+                            <button className="price__button price__button_mg">ГРУППОВЫЕ</button>
+                            <button className="price__button">ДЕТИ</button>
+                        </div>
+                        
                     </div>
-                    <div className="price__wrapper-for-search">
-                        <button className="price__button">ИНДИВИДУАЛЬНЫЕ </button>
-                        <button className="price__button price__button_mg">ГРУППОВЫЕ</button>
-                        <button className="price__button">ДЕТИ</button>
+
+                    <div className="price__wrapper">
+                        {pricePersonal}
+                        {spinner}
+                        {errorMessage}
                     </div>
-                    
-                </div>
 
-                <div className="price__wrapper">
-                    {pricePersonal}
-                </div>
+                    <div className="price__title">ГРУППОВЫЕ ЗАНЯТИЯ
+                        <p>02</p>
+                    </div>
 
-                <div className="price__title">ГРУППОВЫЕ ЗАНЯТИЯ
-                    <p>02</p>
-                </div>
+                    <div className="price__wrapper">
+                        {priceGroup}
+                        {spinner}
+                        {errorMessage}
+                    </div>
 
-                <div className="price__wrapper">
-                    {priceGroup}
-                </div>
+                    <div className="price__title">ЗАНЯТИЯ С ДЕТЬМИ
+                        <p>03</p>
+                    </div>
 
-                <div className="price__title">ЗАНЯТИЯ С ДЕТЬМИ
-                    <p>03</p>
-                </div>
-
-                <div className="price__wrapper">
-                    {priceKids}
-                </div>
+                    <div className="price__wrapper">
+                        {priceKids}
+                        {spinner}
+                        {errorMessage}
+                    </div>  
+                </ErrorBoundary> 
             </div>
         </section>
-
     )
 }
 
