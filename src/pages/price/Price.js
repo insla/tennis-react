@@ -1,6 +1,6 @@
 import './Price.scss';
 // import getResource from '../../services/Services';
-import useServices from '../../services/Services';
+import useGetData from '../../hooks/GetData';
 import { useState, useEffect } from 'react';
 import Spinner from '../../components/spinner/Spinner';
 import ErrorMessage from '../../components/errorMessage/ErrorMessage';
@@ -10,8 +10,9 @@ const Price = () => {
     const [cardPricePersonal, setCardPricePersonal] = useState([]);
     const [cardPriceGroup, setCardPriceGroup] = useState([]);
     const [cardPriceKids, setCardPriceKids] = useState([]);
+    const [filterCard, setFilterCard] = useState(0);
 
-    const { getResource, error, loading } = useServices();
+    const { getResource, error, loading } = useGetData();
 
     useEffect(() => {
         const test = (path, state) => {
@@ -24,7 +25,6 @@ const Price = () => {
         test('priceKids' ,setCardPriceKids)
     }, [])
 
-    
     const renderContent = (data) => {
         return (
             data.map(item => {
@@ -52,10 +52,6 @@ const Price = () => {
         )
     } 
 
-    // const pricePersonal = loading ? <Spinner/> : renderContent(cardPricePersonal);
-    // const priceGroup = loading ? <Spinner/> : renderContent(cardPriceGroup);
-    // const priceKids = loading ? <Spinner/> : renderContent(cardPriceKids);
-
     const spinner = loading ? <Spinner/> : null; 
     const errorMessage = error ? <ErrorMessage/> : null;
     const pricePersonal = renderContent(cardPricePersonal);
@@ -69,44 +65,73 @@ const Price = () => {
             <div className="container">
                 <ErrorBoundary>
                     <div className="price__title-and-search">
-                        <div>
-                            <div className="price__title">ИНДИВИДУАЛЬНЫЕ ЗАНЯТИЯ
-                                <p>01</p>
-                            </div>
-                        </div>
+                        
                         <div className="price__wrapper-for-search">
-                            <button className="price__button">ИНДИВИДУАЛЬНЫЕ </button>
-                            <button className="price__button price__button_mg">ГРУППОВЫЕ</button>
-                            <button className="price__button">ДЕТИ</button>
+                            <button 
+                                className="price__button" 
+                                onClick={() => setFilterCard(filterCard !== 1 ? 1 : 0)}
+                                style={filterCard === 1 ? {border: "3px solid #000"} : null}>
+                                ИНДИВИДУАЛЬНЫЕ 
+                            </button>
+                            <button 
+                                className="price__button price__button_mg" 
+                                onClick={() => setFilterCard(filterCard !== 2 ? 2 : 0)}
+                                style={filterCard === 2 ? {border: "3px solid #000"} : null}>
+                                ГРУППОВЫЕ
+                            </button>
+                            <button 
+                                className="price__button" 
+                                onClick={() => setFilterCard(filterCard !== 3 ? 3 : 0)}
+                                style={filterCard === 3 ? {border: "3px solid #000"} : null}>
+                                ДЕТИ
+                            </button>
                         </div>
                         
                     </div>
 
-                    <div className="price__wrapper">
-                        {pricePersonal}
-                        {spinner}
-                        {errorMessage}
-                    </div>
+                    {filterCard === 0 || filterCard === 1 ? 
+                        <div className="price__title-and-card">
+                            <div>
+                                <div className="price__title">ИНДИВИДУАЛЬНЫЕ ЗАНЯТИЯ
+                                    <p>01</p>
+                                </div>
+                            </div>
 
-                    <div className="price__title">ГРУППОВЫЕ ЗАНЯТИЯ
-                        <p>02</p>
-                    </div>
+                            <div className="price__wrapper">
+                                {pricePersonal}
+                                {spinner}
+                                {errorMessage}
+                            </div>
+                        </div> : null
+                    }
 
-                    <div className="price__wrapper">
-                        {priceGroup}
-                        {spinner}
-                        {errorMessage}
-                    </div>
+                    {filterCard === 0 || filterCard === 2 ? 
+                        <div className="price__title-and-card">
+                            <div className="price__title">ГРУППОВЫЕ ЗАНЯТИЯ
+                                <p>02</p>
+                            </div>
 
-                    <div className="price__title">ЗАНЯТИЯ С ДЕТЬМИ
-                        <p>03</p>
-                    </div>
+                            <div className="price__wrapper">
+                                {priceGroup}
+                                {spinner}
+                                {errorMessage}
+                            </div>
+                        </div> : null
+                    }
 
-                    <div className="price__wrapper">
-                        {priceKids}
-                        {spinner}
-                        {errorMessage}
-                    </div>  
+                    {filterCard === 0 || filterCard === 3 ? 
+                        <div className="price__title-and-card">
+                            <div className="price__title">ЗАНЯТИЯ С ДЕТЬМИ
+                                <p>03</p>
+                            </div>
+
+                            <div className="price__wrapper">
+                                {priceKids}
+                                {spinner}
+                                {errorMessage}
+                            </div>    
+                        </div> : null
+                    }
                 </ErrorBoundary> 
             </div>
         </section>

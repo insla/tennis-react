@@ -1,98 +1,3 @@
-.navigation{
-    &__wrapper{
-        display: flex;
-        align-items:center;
-        justify-content: space-between;
-        height: 106px;
-    }
-    &__logo{
-        width: 120px;
-        height: 55px;
-        display: block;
-
-    }
-    &__hamburger {
-        display: none;
-        width: 30px;
-        height: 22px;
-        position: relative;
-        right: 11%;
-        span {
-            width: 100%;
-            height: 2px;
-            background-color: #fff;
-            position: absolute;
-            top: 10px;
-        }
-        &::after {
-            content: '';
-            width: 100%;
-            height: 2px;
-            background-color: #fff;
-            position: absolute;
-            top: 0;
-        }
-        &::before {
-            content: '';
-            width: 100%;
-            height: 2px;
-            background-color: #fff;
-            position: absolute;
-            bottom: 0;
-        }
-    }
-    &__icon{
-        cursor: pointer;
-        display: flex;
-        a{
-            width: 50px;
-            height: 50px;
-            text-decoration: none;
-            text-align: center;
-            border-radius: 50%;
-            box-shadow: 0 0 14px 6px rgba(0, 0, 0, 0.10);
-            position: relative;
-            margin: 0 10px; 
-            overflow: hidden;
-            transition: transform 0.5s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            &::after{
-                content:'';
-                width: 100%;
-                height: 100%;
-                top: -90px;
-                left: 0;
-                background: #ffe4e4;
-                position: absolute;
-                transition: 0.5s;             
-            }
-            &:hover::after{
-                top: 0;
-            }
-            &:hover .navigation__item {
-                color: rgb(0, 0, 0);
-            }
-            &:hover{
-                transform: translateY(-5px);
-            }
-        }
-    }
-    &__item{
-        font-size: 30px;
-        line-height: 50px;
-        position: relative;
-        z-index: 10;
-        transition: color 0.5s;
-        color: #fff;
-    }
-    &__line{
-        height: 1px;
-        background-color: #fff;
-    }
-}
-
 .menu {
     width: 600px;
     list-style-type: none;
@@ -158,6 +63,7 @@
         top: 70px;
         left: -32px;
         transition: all ease-in-out 0.3s;
+        z-index: 2;
         &:hover {
             box-shadow: none;
         }
@@ -178,7 +84,6 @@
 
 .heading{
     padding: 100px 0 ;
-    margin-bottom: 100px;
     h1{
         max-width: 636px;
         height: 200px;

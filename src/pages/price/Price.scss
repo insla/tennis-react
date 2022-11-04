@@ -8,7 +8,6 @@
         margin-right: 28px;
         display: flex;
         width: 700px;
-        margin-top: 70px;
 
         // input[type="search"]::-webkit-search-decoration,
         // input[type="search"]::-webkit-search-cancel-button,
@@ -31,7 +30,8 @@
         transition: font-size 0.3s;
         &:hover {
             font-size: 22px;
-            border-color: #000;
+            border: 3px solid #000;
+            
         }
         &_mg {
             margin: 0 5px;

@@ -1,0 +1,27 @@
+.not-found {
+    position: absolute;
+    top: 107px;
+    left: 50%;
+    transform: translateX(-50%);
+    p {
+        position: relative;
+        top: -330px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 600;
+    }
+    a {
+        display: block;
+        text-align: center;
+        position: relative;
+        top: -34px;
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 44px;
+        color: #000;
+        background-color: #ffe4e4;
+        &:hover {
+            color: rgb(255, 0, 0)
+        }
+    }
+}

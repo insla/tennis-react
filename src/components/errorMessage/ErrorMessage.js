@@ -1,8 +1,9 @@
+import './ErrorMessage.scss';
 import img from './error.gif';
 
 const ErrorMessage = () => {
     return (
-        <img src={img} alt="error" style={{margin: '0 auto', height: '350px', objectFit: 'contain'}}/>
+        <img className='error-message error-message_page404' src={img} alt="error"/>
     )
 }
 

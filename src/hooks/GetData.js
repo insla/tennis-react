@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useServices = () => {
+const useGetData = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false)
 
@@ -28,4 +28,4 @@ const useServices = () => {
     return {getResource, error, loading};
 }
 
-export default useServices;
+export default useGetData;
