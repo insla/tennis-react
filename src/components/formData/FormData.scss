@@ -9,6 +9,12 @@
     background: linear-gradient(120deg,#2980b933,#880c0f30);
     border-radius: 10px;
     box-shadow: 7px 11px 15px rgb(0 0 0 / 20%);
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active{
+        -webkit-box-shadow: 6px 9px 5px rgb(189 189 189), 0 0 0 30px rgba(234, 238, 221, 1) inset  !important;
+    }
     &__subtitle {
         text-align: center;
         font-size: 24px;
@@ -73,6 +79,11 @@
             font-size: 18px;
             box-shadow: 6px 9px 5px rgb(189 189 189);
         }
+    }
+    &__error {
+        color: red;
+        margin-left: 10px;
+        font-size: 18px;
     }
 }
 

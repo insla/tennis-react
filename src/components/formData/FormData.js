@@ -1,38 +1,62 @@
 import './FormData.scss';
 import {Formik, Field, ErrorMessage, Form} from 'formik';
 import * as Yup from 'yup';
+import MaskedInput from 'react-text-mask';
 
 const FormData = () => {
-    const phoneRegExp = /^(\+7|8)(\(\d{3}\)|\d{3})\d{7}$/
 
+    const phoneNumberMask = [
+        "+",
+        "7",
+        " ",
+        "(",
+        /[1-9]/,
+        /\d/,
+        /\d/,
+        ")",
+        " ",
+        /\d/,
+        /\d/,
+        /\d/,
+        "-",
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/
+    ];
+    
     return(
         <Formik
             initialValues={{
                 name: '',
                 surname: '',
-                number: '',
+                phone: '',
                 email: '',
                 text: ''
-            }}  
+            }}
             validationSchema = {Yup.object({
                 name: Yup.string ()
                     .min(2, 'Минимум два символа!')
                     .required('Обязательное поле!'),
                 surname: Yup.string ()
                     .min(2, 'Минимум два символа!'),
-                number: Yup.string()
-                    .matches(phoneRegExp, 'Номер телефона невалидный'),
-                    // .moreThan(5, 'Не мение пяти!')
-                    // .required('Обязательное поле!'),
+                phone: Yup.string()
+                    .required('Обязательное поле!')
+                    .transform(value => value.replace(/[^\d]/g, ''))
+                    .min(11, 'Введите номер полностью!'),
+                    
                 email: Yup.string ()
                     .email('Неправильный email адрес!')
                     .required('Обязательное поле!'),
                 text: Yup.string ()
                     .min(5, 'Минимум 5 символов для заполнения!'),
             })} 
-            onSubmit = {value => console.log(JSON.stringify(value, null, 2))}
+            onSubmit = {(value, {resetForm}) => {
+                console.log(JSON.stringify(value, null, 2))
+                resetForm({ value : ''})
+            }}
             >
-            <Form className="form-data" action="#">
+            <Form className="form-data" action="#" noValidate>
                 <h3 className="form-data__subtitle">Введите контактные данные</h3>
                 <div className="form-data__input form-data__input_mg">
                     <Field 
@@ -42,7 +66,7 @@ const FormData = () => {
                         id="name"
                         as="input">
                     </Field>
-                    <ErrorMessage className='error' name = 'name' component = 'div'/>
+                    <ErrorMessage className='form-data__error' name = 'name' component = 'div'/>
                 </div>
                 <div className="form-data__input">
                     <Field 
@@ -52,17 +76,23 @@ const FormData = () => {
                         id="surname"
                         as="input">
                     </Field>
-                    <ErrorMessage className='error' name = 'surname' component = 'div'/>
+                    <ErrorMessage className='form-data__error' name = 'surname' component = 'div'/>
                 </div>
                 <div className="form-data__number">
                     <Field 
-                        type="number" 
-                        placeholder="Ваш телефон" 
-                        name="number" 
-                        id="number"
-                        as="input">
+                        name="phone">
+                        {({ field }) =>(
+                            <MaskedInput
+                                {...field}
+                                mask={ phoneNumberMask }
+                                as="input"
+                                id="phone"
+                                type="text"
+                                placeholder="Ваш телефон">
+                            </MaskedInput>
+                        )}
                     </Field>
-                    <ErrorMessage className='error' name = 'number' component = 'div'/>
+                    <ErrorMessage className='form-data__error' name = 'phone' component = 'div'/>
                 </div>
                 <div className="form-data__email">
                     <Field
@@ -72,7 +102,7 @@ const FormData = () => {
                         id="email"
                         as="input">
                     </Field>
-                    <ErrorMessage className='error' name = 'email' component = 'div'/>
+                    <ErrorMessage className='form-data__error' name = 'email' component = 'div'/>
                 </div>
                 <div className="form-data__text">
                     <Field
@@ -81,7 +111,7 @@ const FormData = () => {
                         id="text" 
                         as="textarea">
                     </Field>
-                    <ErrorMessage className='error' name = 'text' component = 'div'/>
+                    <ErrorMessage className='form-data__error' name = 'text' component = 'div'/>
                 </div>
                 <button className="button" type='submit'>Отправить</button>
             </Form>
@@ -90,3 +120,4 @@ const FormData = () => {
 }
 
 export default FormData;
+
