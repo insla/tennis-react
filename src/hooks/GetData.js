@@ -4,11 +4,11 @@ const useGetData = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false)
 
-    const getResource = async (url) => {
+    const getResource = async (url, headers = {'Content-Type' : 'application/json'}, method = 'GET', body = null ) => {
         setLoading(true)
 
         try {
-            const res = await fetch(url)
+            const res = await fetch(url, {method, body, headers})
 
             if (!res.ok) {
                 throw new Error(`Could not fetch ${url}, status: ${res.status}`);

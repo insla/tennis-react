@@ -1,6 +1,7 @@
 import './Price.scss';
 // import getResource from '../../services/Services';
 import useGetData from '../../hooks/GetData';
+import useServices from '../../services/Services';
 import { useState, useEffect } from 'react';
 import Spinner from '../../components/spinner/Spinner';
 import ErrorMessage from '../../components/errorMessage/ErrorMessage';
@@ -12,18 +13,19 @@ const Price = () => {
     const [cardPriceKids, setCardPriceKids] = useState([]);
     const [filterCard, setFilterCard] = useState(0);
 
-    const { getResource, error, loading } = useGetData();
+    const { error, loading } = useGetData();
+    const { getPrice } = useServices();
 
     useEffect(() => {
-        const test = (path, state) => {
-            getResource(`http://localhost:3001/${path}`)
-                .then(data => state(data))
-        }
+        saveDataInState('pricePersonal', setCardPricePersonal)
+        saveDataInState('priceGroup', setCardPriceGroup)
+        saveDataInState('priceKids', setCardPriceKids)
 
-        test('pricePersonal' ,setCardPricePersonal)
-        test('priceGroup' ,setCardPriceGroup)
-        test('priceKids' ,setCardPriceKids)
     }, [])
+
+    const saveDataInState = (address, state) => {
+        getPrice(address).then(data => state(data))
+    }
 
     const renderContent = (data) => {
         return (
@@ -57,8 +59,6 @@ const Price = () => {
     const pricePersonal = renderContent(cardPricePersonal);
     const priceGroup = renderContent(cardPriceGroup);
     const priceKids = renderContent(cardPriceKids);
-
-
 
     return (
         <section className="price">

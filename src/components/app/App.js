@@ -13,6 +13,7 @@ const Personal = lazy(() => import ('../../pages/personal/Personal'));
 const Grpup = lazy(() => import ('../../pages/group/Group'));
 const Price = lazy(() => import ('../../pages/price/Price'));
 const Page404 = lazy(() => import ('../../pages/page404/Page404'));
+const News = lazy(() => import ('../../pages/news/News'));
 const Contacts = lazy(() => import ('../../pages/contacts/Contacts'));
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
               <Route path="/personal" element={<Personal/>}/>
               <Route path="/group" element={<Grpup/>}/>
               <Route path="/price" element={<Price/>}/>
+              <Route path="/news" element={<News/>}/>
               <Route path="/contacts" element={<Contacts/>}/>
               <Route path="*" element={<Page404/>}/>
             </Routes>
