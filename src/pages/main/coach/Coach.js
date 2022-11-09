@@ -2,8 +2,7 @@ import './Coach.scss';
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-// import getResource from '../../../services/Services';
-import useGetData from '../../../hooks/GetData';
+import useServices from '../../../services/Services';
 import { useState, useEffect } from 'react';
 import arrowLeft from '../../../resources/icons/arrow_left.png';
 import arrowRight from '../../../resources/icons/arrow_right.png';
@@ -13,10 +12,10 @@ import arrowRight from '../../../resources/icons/arrow_right.png';
 const Coach = () => {
     const [coach, setCoach] = useState([]) 
 
-    const { getResource } = useGetData();
+    const { getLocalData } = useServices();
 
     useEffect(() => {
-        getResource('http://localhost:3001/coach')
+        getLocalData('coach')
             .then(data => setCoach(data))
     }, [])
 

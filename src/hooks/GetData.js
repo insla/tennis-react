@@ -2,19 +2,19 @@ import { useState } from "react";
 
 const useGetData = () => {
     const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     const getResource = async (url, headers = {'Content-Type' : 'application/json'}, method = 'GET', body = null ) => {
-        setLoading(true)
+        // setLoading(true)
 
         try {
-            const res = await fetch(url, {method, body, headers})
+            const response = await fetch(url, {method, body, headers})
 
-            if (!res.ok) {
-                throw new Error(`Could not fetch ${url}, status: ${res.status}`);
+            if (!response.ok) {
+                throw new Error(`Could not fetch ${url}, status: ${response.status}`);
             }
             
-            const data = await res.json();
+            const data = await response.json();
             setLoading(false)
             
             return data 

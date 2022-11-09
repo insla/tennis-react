@@ -1,6 +1,4 @@
 import './Price.scss';
-// import getResource from '../../services/Services';
-import useGetData from '../../hooks/GetData';
 import useServices from '../../services/Services';
 import { useState, useEffect } from 'react';
 import Spinner from '../../components/spinner/Spinner';
@@ -13,8 +11,7 @@ const Price = () => {
     const [cardPriceKids, setCardPriceKids] = useState([]);
     const [filterCard, setFilterCard] = useState(0);
 
-    const { error, loading } = useGetData();
-    const { getPrice } = useServices();
+    const { getLocalData, error, loading } = useServices();
 
     useEffect(() => {
         saveDataInState('pricePersonal', setCardPricePersonal)
@@ -24,33 +21,31 @@ const Price = () => {
     }, [])
 
     const saveDataInState = (address, state) => {
-        getPrice(address).then(data => state(data))
+        getLocalData(address).then(data => state(data))
     }
 
     const renderContent = (data) => {
         return (
-            data.map(item => {
-                return (
-                    <div key={item.id} className="price__plan">
-        
-                        <div className="price__head">
-                            <h3><span className="price__symbol">&#8381;</span>{item.price}</h3>
-                            <h4>{item.time}</h4>
-                        </div>
-        
-                        <h3 className="price__subtitle">{item.title}</h3>
-        
-                        <ul className="price__items">
-                            <li>{item.description.string_1}</li>
-                            <li>{item.description.string_2}</li>
-                            <li>{item.description.string_3}</li>
-                        </ul>
-                        
-                        <div className="price__line"></div>
-                        <button className="button button__price">Записаться</button>
+            data.map(item => (
+                <div key={item.id} className="price__plan">
+    
+                    <div className="price__head">
+                        <h3><span className="price__symbol">&#8381;</span>{item.price}</h3>
+                        <h4>{item.time}</h4>
                     </div>
-                )
-            })
+    
+                    <h3 className="price__subtitle">{item.title}</h3>
+    
+                    <ul className="price__items">
+                        <li>{item.description.string_1}</li>
+                        <li>{item.description.string_2}</li>
+                        <li>{item.description.string_3}</li>
+                    </ul>
+                    
+                    <div className="price__line"></div>
+                    <button className="button button__price">Записаться</button>
+                </div>
+            ))
         )
     } 
 

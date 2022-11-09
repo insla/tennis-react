@@ -2,48 +2,64 @@ import './News.scss';
 import { useEffect, useState } from 'react';
 import useServices from '../../services/Services';
 import Spinner from '../../components/spinner/Spinner';
+import ErrorBoundary from '../../components/errorBoundary/ErrorBoundary';
+import ErrorMessage from '../../components/errorMessage/ErrorMessage';
 
 const News = () => {
-    const [news, setNews] = useState({});
+    const [news, setNews] = useState([]);
+    const [newListLoading, setNewListLoading] = useState(false);
+    const [page, setPage] = useState(1)
+
     const { getNews, loading, error } = useServices();
 
     useEffect(() => {
-        getNews().then(data => setNews(data))
+        onRequestNews(page, true)
     }, [])
 
-    const renderNews = (data) => {
-        data.map(item => console.log(item))
+    const onRequestNews = (page, initial) => {
+        initial ? setNewListLoading(false) : setNewListLoading(true)
+
+        getNews(page).then(onNewsLoading)
+    }
+    
+    const onNewsLoading = (newsNextPage) => {
+        setNews([...news, ...newsNextPage])
+        setPage(page + 1)
+        setNewListLoading(false)
     }
 
-    let listNews = null
-
-    if(news.length > 0) {
-        listNews = renderNews(news)
+    const renderNews = (arr) => {
+        return (
+            arr.map(item => (
+                <div key={item.id} className="news__wrapper-item">
+                    <img src={item.img} alt={item.title}/>
+                    <p>{item.time}</p>
+                    <h3>{item.title}</h3>
+                    <button className="button button_small">Подробнее</button>
+                </div>
+            ))
+        )
     }
 
-    console.log(listNews)
-
-
-    // const spinner = loading ? <Spinner/> : renderNews(news);
-    // const listNews = renderNews(news);
-    // const spinner = loading ? <Spinner/> : null; 
+    const listNews = renderNews(news);
+    const spinner = loading ? <Spinner/> : null; 
+    const errorMessage = error ? <ErrorMessage/> : null;
 
     return (
         <section className="news">
             <div className="container">
-                <div className="news__wrapper">
-                    {/* {spinner} */}
-                    {/* {listNews} */}
-                    <div className="news__wrapper-item">
-                        <img src="img/news/news-reg.jpg" alt="img"/>
-                        <p>22 июля 2022 года</p>
-                        <h3>
-                            Consequat consequat augue quis urna arcu scelerisque ac montes, sed. Arcu orci quam lectus orci in.
-                        </h3>
-                        <button className="button button_small">Подробнее</button>
+                <ErrorBoundary>
+                    <div className="news__wrapper">
+                        {spinner}
+                        {listNews}
+                        {errorMessage}
                     </div>
-                </div>
-                <button className="button">Еще</button>
+                    <button 
+                        onClick={() => onRequestNews(page)} 
+                        disabled={newListLoading}
+                        className="button">Еще
+                    </button>
+                </ErrorBoundary>
             </div>
         </section>
     )
