@@ -3,7 +3,6 @@ import sportClub from '../../../resources/img/main_page/sport_club.png';
 
 const Club = () => {
     
-    
     return (
         <section className="club">
             <div className="container">
@@ -26,7 +25,6 @@ const Club = () => {
                 </div>
             </div>
         </section>
-
     )
 } 
 

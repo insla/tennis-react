@@ -3,7 +3,6 @@ import ground from '../../../resources/img/main_page/ground.png';
 import grass from '../../../resources/img/main_page/grass.jpg';
 import hard from '../../../resources/img/main_page/hard.png';
 
-
 const Courts = () => {
     return (
         <section className="courts">

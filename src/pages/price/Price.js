@@ -11,16 +11,16 @@ const Price = () => {
     const [cardPriceKids, setCardPriceKids] = useState([]);
     const [filterCard, setFilterCard] = useState(0);
 
-    const { getLocalData, error, loading } = useServices();
+    const { getLocalData, clearError, error, loading } = useServices();
 
     useEffect(() => {
-        saveDataInState('pricePersonal', setCardPricePersonal)
-        saveDataInState('priceGroup', setCardPriceGroup)
-        saveDataInState('priceKids', setCardPriceKids)
-
+        requestPrice('pricePersonal', setCardPricePersonal)
+        requestPrice('priceGroup', setCardPriceGroup)
+        requestPrice('priceKids', setCardPriceKids)
     }, [])
 
-    const saveDataInState = (address, state) => {
+    const requestPrice = (address, state) => {
+        clearError()
         getLocalData(address).then(data => state(data))
     }
 

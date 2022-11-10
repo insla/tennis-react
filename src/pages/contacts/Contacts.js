@@ -36,7 +36,6 @@ const Contacts = () => {
                 </div>
             </div>
         </section>
-
     )
 }
 

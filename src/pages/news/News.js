@@ -4,25 +4,27 @@ import useServices from '../../services/Services';
 import Spinner from '../../components/spinner/Spinner';
 import ErrorBoundary from '../../components/errorBoundary/ErrorBoundary';
 import ErrorMessage from '../../components/errorMessage/ErrorMessage';
+import { Link } from 'react-router-dom';
 
 const News = () => {
     const [news, setNews] = useState([]);
     const [newListLoading, setNewListLoading] = useState(false);
     const [page, setPage] = useState(1)
 
-    const { getNews, loading, error } = useServices();
+    const { getNews, clearError, loading, error } = useServices();
 
     useEffect(() => {
-        onRequestNews(page, true)
+        requestNews(page, true)
     }, [])
 
-    const onRequestNews = (page, initial) => {
+    const requestNews = (page, initial) => {
+        clearError()
         initial ? setNewListLoading(false) : setNewListLoading(true)
 
-        getNews(page).then(onNewsLoading)
+        getNews(page).then(newsLoading)
     }
     
-    const onNewsLoading = (newsNextPage) => {
+    const newsLoading = (newsNextPage) => {
         setNews([...news, ...newsNextPage])
         setPage(page + 1)
         setNewListLoading(false)
@@ -35,7 +37,9 @@ const News = () => {
                     <img src={item.img} alt={item.title}/>
                     <p>{item.time}</p>
                     <h3>{item.title}</h3>
-                    <button className="button button_small">Подробнее</button>
+                    <Link to={`/news/${item.id}`}>
+                        <button className="button button_small">Подробнее</button>
+                    </Link>
                 </div>
             ))
         )
@@ -54,11 +58,14 @@ const News = () => {
                         {listNews}
                         {errorMessage}
                     </div>
-                    <button 
-                        onClick={() => onRequestNews(page)} 
-                        disabled={newListLoading}
-                        className="button">Еще
-                    </button>
+                    {listNews.length > 0 ? 
+                    
+                        <button 
+                            onClick={() => requestNews(page)} 
+                            disabled={newListLoading}
+                            className="button">Еще
+                        </button> : null
+                    }
                 </ErrorBoundary>
             </div>
         </section>

@@ -15,6 +15,7 @@ const Price = lazy(() => import ('../../pages/price/Price'));
 const Page404 = lazy(() => import ('../../pages/page404/Page404'));
 const News = lazy(() => import ('../../pages/news/News'));
 const Contacts = lazy(() => import ('../../pages/contacts/Contacts'));
+const DetailsNews = lazy(() => import ('../../pages/detailsNews/DetailsNews'));
 
 function App() {
   useEffect(() => {
@@ -34,6 +35,7 @@ function App() {
               <Route path="/group" element={<Grpup/>}/>
               <Route path="/price" element={<Price/>}/>
               <Route path="/news" element={<News/>}/>
+              <Route path="/news/:id" element={<DetailsNews/>}/>
               <Route path="/contacts" element={<Contacts/>}/>
               <Route path="*" element={<Page404/>}/>
             </Routes>

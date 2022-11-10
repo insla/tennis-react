@@ -2,7 +2,7 @@ import './Footer.scss';
 import logo from '../../resources/img/main_page/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube, faVk, faTelegram, faInstagram, faFacebook, faTwitter} from '@fortawesome/free-brands-svg-icons';
-import { faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faLocationDot, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
@@ -37,12 +37,12 @@ const Footer = () => {
                         </div>
                         <div className="footer__social">
                             <p>Social Media</p>
-                            <a><FontAwesomeIcon className="footer__item" icon = {faYoutube}></FontAwesomeIcon></a>
-                            <a><FontAwesomeIcon className="footer__item" icon = {faVk}></FontAwesomeIcon></a>
-                            <a><FontAwesomeIcon className="footer__item" icon = {faTelegram}></FontAwesomeIcon></a>
-                            <a><FontAwesomeIcon className="footer__item" icon = {faInstagram}></FontAwesomeIcon></a>
-                            <a><FontAwesomeIcon className="footer__item" icon = {faFacebook}></FontAwesomeIcon></a>
-                            <a><FontAwesomeIcon className="footer__item" icon = {faTwitter}></FontAwesomeIcon></a>
+                            <a href="#"><FontAwesomeIcon className="footer__item" icon = {faYoutube}></FontAwesomeIcon></a>
+                            <a href="#"><FontAwesomeIcon className="footer__item" icon = {faVk}></FontAwesomeIcon></a>
+                            <a href="#"><FontAwesomeIcon className="footer__item" icon = {faTelegram}></FontAwesomeIcon></a>
+                            <a href="#"><FontAwesomeIcon className="footer__item" icon = {faInstagram}></FontAwesomeIcon></a>
+                            <a href="#"><FontAwesomeIcon className="footer__item" icon = {faFacebook}></FontAwesomeIcon></a>
+                            <a href="#"><FontAwesomeIcon className="footer__item" icon = {faTwitter}></FontAwesomeIcon></a>
                         </div>
                     </div>
                     <div className="footer__line footer__line_white"></div>
@@ -57,7 +57,9 @@ const Footer = () => {
                 </div>
             </footer>
 
-            <div className="up"><i className="fa-solid fa-arrow-up"></i></div>
+            <div className="up">
+                <FontAwesomeIcon className="up up__arrow" icon={faArrowUp}></FontAwesomeIcon>
+            </div>
         </>
     )
 }

@@ -3,7 +3,6 @@ import benefit_1 from '../../../resources/img/about/benefit-1.jpg';
 import benefit_2 from '../../../resources/img/about/benefit-2.jpg';
 import benefit_3 from '../../../resources/img/about/benefit-3.jpg';
 
-
 const Benefit = () => {
     return (
         <section className="benefit">

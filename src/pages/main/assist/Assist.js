@@ -3,7 +3,6 @@ import children from '../../../resources/img/assist/children.jpg';
 import personal from '../../../resources/img/assist/personal.jpg';
 import group from '../../../resources/img/assist/group.jpg';
 
-
 const Assist = () => {
     return (
         <section className="assist">

@@ -2,10 +2,10 @@ import { useState } from "react";
 
 const useGetData = () => {
     const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
 
     const getResource = async (url, headers = {'Content-Type' : 'application/json'}, method = 'GET', body = null ) => {
-        // setLoading(true)
+        setLoading(true)
 
         try {
             const response = await fetch(url, {method, body, headers})
@@ -25,7 +25,12 @@ const useGetData = () => {
             throw (e)
         }
     }
-    return {getResource, error, loading};
+
+    const clearError = () => {
+        setError(null)
+    }
+
+    return {getResource, clearError, error, loading};
 }
 
 export default useGetData;

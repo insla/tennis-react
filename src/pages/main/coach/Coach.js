@@ -6,34 +6,42 @@ import useServices from '../../../services/Services';
 import { useState, useEffect } from 'react';
 import arrowLeft from '../../../resources/icons/arrow_left.png';
 import arrowRight from '../../../resources/icons/arrow_right.png';
-
-
+import ErrorMessage from '../../../components/errorMessage/ErrorMessage';
+import Spinner from '../../../components/spinner/Spinner';
 
 const Coach = () => {
     const [coach, setCoach] = useState([]) 
 
-    const { getLocalData } = useServices();
+    const { getLocalData, clearError, loading, error } = useServices();
 
     useEffect(() => {
-        getLocalData('coach')
-            .then(data => setCoach(data))
+        requestCoach('coach')
     }, [])
 
-    const renderCoach = coach.map(item => {
+    const requestCoach = (address) => {
+        clearError()
+        getLocalData(address)
+            .then(data => setCoach(data))
+    }
+
+    const renderCoach = () => {
         return (
-            <div key={item.id}>
-                <div className="coach__wrapper">
-                    <div className="coach__img">
-                        <img src={item.img}  alt={item.altImg}/>
-                    </div>
-                    <div className="coach__text">
-                        <p className="coach__name">{item.name}</p>
-                        <p className="coach__description">{item.description}</p>
+            coach.map(item => (
+                <div key={item.id}>
+                    <div className="coach__wrapper">
+                        <div className="coach__img">
+                            <img src={item.img}  alt={item.altImg}/>
+                        </div>
+                        <div className="coach__text">
+                            <p className="coach__name">{item.name}</p>
+                            <p className="coach__description">{item.description}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            ))
         )
-    })
+        
+    }
 
     const LeftNavButton = (props) => {
         const {onClick} = props
@@ -81,12 +89,21 @@ const Coach = () => {
         }]
     }    
 
+    const spinner = loading ? <Spinner/> : null; 
+    const errorMessage = error ? <ErrorMessage/> : null;
+    const items = renderCoach()
+
     return (
         <section className="coach">
             <div className="container">
                 <h2 className="title title_centr">Тренерский состав</h2>
+
+                {spinner}
+                {errorMessage}
+
                 <Slider {...settings}>
-                    {renderCoach}
+
+                    {items}
                 </Slider>
             </div>
         </section>
