@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Spinner from '../../components/spinner/Spinner';
 import ErrorMessage from '../../components/errorMessage/ErrorMessage';
 import ErrorBoundary from '../../components/errorBoundary/ErrorBoundary';
+import { Link } from 'react-router-dom';
 
 const Price = () => {
     const [cardPricePersonal, setCardPricePersonal] = useState([]);
@@ -43,7 +44,9 @@ const Price = () => {
                     </ul>
                     
                     <div className="price__line"></div>
-                    <button className="button button__price">Записаться</button>
+                    <Link to='/contacts'>
+                        <button className="button button__price">Записаться</button>
+                    </Link>
                 </div>
             ))
         )

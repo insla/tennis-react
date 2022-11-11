@@ -75,7 +75,7 @@ const Coach = () => {
         slidesToShow: 3,
         slidesToScroll: 1,
         dots: true,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 1500,
         prevArrow: <LeftNavButton/>,
         nextArrow: <RightNavButton/>,

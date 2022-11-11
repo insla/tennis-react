@@ -2,6 +2,7 @@ import './Assist.scss';
 import children from '../../../resources/img/assist/children.jpg';
 import personal from '../../../resources/img/assist/personal.jpg';
 import group from '../../../resources/img/assist/group.jpg';
+import { Link } from 'react-router-dom';
 
 const Assist = () => {
     return (
@@ -18,7 +19,9 @@ const Assist = () => {
 
                     <div className="assist__info">
                         <p className="assist__description">Кто только делает свой первый шаг в мир тенниса</p>
-                        <button className="button">Подробнее</button>
+                        <Link to='/kids'>
+                            <button className="button">Подробнее</button>
+                        </Link>
                     </div>
                     
                     <div className="assist__gradient-overlay"></div>
@@ -33,7 +36,9 @@ const Assist = () => {
 
                     <div className="assist__info">
                         <p className="assist__description">Индивидуальный подход и мотивация на успех</p>
-                        <button className="button">Подробнее</button>
+                        <Link to='/personal'>
+                            <button className="button">Подробнее</button>
+                        </Link>
                     </div>
 
                     <div className="assist__gradient-overlay"></div>
@@ -48,7 +53,9 @@ const Assist = () => {
 
                     <div className="assist__info">
                         <p className="assist__description">Занятия в мини-группах разного уровня подготовки</p>
-                        <button className="button">Подробнее</button>
+                        <Link to='/group'>
+                            <button className="button">Подробнее</button>
+                        </Link>
                     </div>
 
                     <div className="assist__gradient-overlay"></div>

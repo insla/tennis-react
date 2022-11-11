@@ -1,5 +1,6 @@
 import './Group.scss';
 import groupPage from '../../resources/img/grpup/group-page.jpg';
+import { Link } from 'react-router-dom';
 
 const Group = () => {
     return (
@@ -33,7 +34,9 @@ const Group = () => {
                     <br/><br/>
                     Вы наслаждаетесь эффективностью занятий, удивляя друзей, близких, партнеров своими навыками!
                 </p>
-                <button className="button">Записаться</button>
+                <Link to='/contacts'>
+                    <button className="button">Записаться</button>
+                </Link>
             </div>
         </section>
     )

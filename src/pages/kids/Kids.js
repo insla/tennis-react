@@ -1,5 +1,6 @@
 import './Kids.scss';
 import childrenPage from '../../resources/img/kids/children-page.jpg'
+import { Link } from 'react-router-dom';
 
 const Kids = () => {
     return (
@@ -26,7 +27,9 @@ const Kids = () => {
                     <li>Группа углубленного разучивания (7-10 лет)</li>
                     <li>Группа спортивного совершенствования (10-15 лет)</li>
                 </ul>
-                <button className="button">Записаться</button>
+                <Link to='/contacts'>
+                    <button className="button">Записаться</button>
+                </Link>
             </div>
         </section>
     )

@@ -4,8 +4,31 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube, faVk, faTelegram, faInstagram, faFacebook, faTwitter} from '@fortawesome/free-brands-svg-icons';
 import { faPhone, faLocationDot, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 const Footer = () => {
+    const [isVisible, setIsVisible] = useState(false);
+    
+    useEffect(() => {   
+        window.addEventListener("scroll", listenToScroll);
+        return () => 
+            window.removeEventListener("scroll", listenToScroll); 
+    }, [])
+    
+    const listenToScroll = () => {
+        const heightToHideFrom = 800;
+        const winScroll = document.documentElement.scrollTop;
+
+        winScroll > heightToHideFrom ? setIsVisible(true) : setIsVisible(false)
+    };
+
+    const pageUp = () => {
+        window.scroll({
+            top: 0, 
+            behavior: 'smooth',
+        });
+    }
+
     return (
         <>
             <footer className="footer">
@@ -57,9 +80,11 @@ const Footer = () => {
                 </div>
             </footer>
 
-            <div className="up">
-                <FontAwesomeIcon className="up up__arrow" icon={faArrowUp}></FontAwesomeIcon>
-            </div>
+            {isVisible && 
+                <div className="up" onClick={() => pageUp()}>
+                    <FontAwesomeIcon className="up up__arrow" icon={faArrowUp}></FontAwesomeIcon>
+                </div>
+            }
         </>
     )
 }

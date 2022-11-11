@@ -2,6 +2,7 @@ import './Benefit.scss';
 import benefit_1 from '../../../resources/img/about/benefit-1.jpg';
 import benefit_2 from '../../../resources/img/about/benefit-2.jpg';
 import benefit_3 from '../../../resources/img/about/benefit-3.jpg';
+import { Link } from 'react-router-dom';
 
 const Benefit = () => {
     return (
@@ -42,8 +43,9 @@ const Benefit = () => {
                             <img src={benefit_3} alt="img3"/>
                         </div>
                     </div>
-
-                    <button className="button">Записаться</button>
+                    <Link to='/contacts'>
+                        <button className="button">Записаться</button>
+                    </Link>
                 </div>
             </div>
         </section>

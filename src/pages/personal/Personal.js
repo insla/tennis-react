@@ -1,5 +1,6 @@
 import './Personal.scss';
 import personalPage from '../../resources/img/personal/personal-page.jpg';
+import { Link } from 'react-router-dom';
 
 const Personal = () => {
     return (
@@ -12,7 +13,9 @@ const Personal = () => {
                     <br/><br/>
                     Отправьте нам заявку, указав обязательно свои имя и телефон. Мы перезвоним и ответим Вам на все интересующие вопросы.
                 </p>
-                <button className="button">Записаться</button>
+                <Link to='/contacts'>
+                    <button className="button">Записаться</button>
+                </Link>
             </div>
         </section>
     )
