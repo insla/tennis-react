@@ -19,9 +19,7 @@ const Assist = () => {
 
                     <div className="assist__info">
                         <p className="assist__description">Кто только делает свой первый шаг в мир тенниса</p>
-                        <Link to='/kids'>
-                            <button className="button">Подробнее</button>
-                        </Link>
+                        <Link to='/kids' className="button">Подробнее</Link>
                     </div>
                     
                     <div className="assist__gradient-overlay"></div>
@@ -36,9 +34,7 @@ const Assist = () => {
 
                     <div className="assist__info">
                         <p className="assist__description">Индивидуальный подход и мотивация на успех</p>
-                        <Link to='/personal'>
-                            <button className="button">Подробнее</button>
-                        </Link>
+                        <Link to='/personal' className="button">Подробнее</Link>
                     </div>
 
                     <div className="assist__gradient-overlay"></div>
@@ -53,9 +49,7 @@ const Assist = () => {
 
                     <div className="assist__info">
                         <p className="assist__description">Занятия в мини-группах разного уровня подготовки</p>
-                        <Link to='/group'>
-                            <button className="button">Подробнее</button>
-                        </Link>
+                        <Link to='/group' className="button">Подробнее</Link>
                     </div>
 
                     <div className="assist__gradient-overlay"></div>

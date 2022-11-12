@@ -43,9 +43,7 @@ const Benefit = () => {
                             <img src={benefit_3} alt="img3"/>
                         </div>
                     </div>
-                    <Link to='/contacts'>
-                        <button className="button">Записаться</button>
-                    </Link>
+                    <Link to='/contacts' className="button">Записаться</Link>
                 </div>
             </div>
         </section>

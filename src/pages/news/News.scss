@@ -5,6 +5,7 @@
        grid-template-columns: repeat(auto-fit, minmax(280px, 366px));
        justify-content: space-around;
        row-gap: 30px;
+       margin-bottom: 60px;
     }
     &__wrapper-item {
         display: flex;

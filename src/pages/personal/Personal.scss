@@ -8,8 +8,11 @@
         border-radius: 10px;
         box-shadow: 7px 11px 15px rgb(0 0 0 / 20%);
     }
-    p {
+    p:first-of-type {
         margin-top: 50px;
+    }
+    p {
+        margin-top: 20px;
         font-size: 20px;
     }
 }

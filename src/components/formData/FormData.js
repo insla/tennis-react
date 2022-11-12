@@ -113,7 +113,7 @@ const FormData = () => {
                     </Field>
                     <ErrorMessage className='form-data__error' name = 'text' component = 'div'/>
                 </div>
-                <button className="button" type='submit'>Отправить</button>
+                <button className="button button_align-left" type='submit'>Отправить</button>
             </Form>
         </Formik>
     )

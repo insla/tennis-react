@@ -44,9 +44,7 @@ const Price = () => {
                     </ul>
                     
                     <div className="price__line"></div>
-                    <Link to='/contacts'>
-                        <button className="button button__price">Записаться</button>
-                    </Link>
+                    <Link to='/contacts' className="button button_price">Записаться</Link>
                 </div>
             ))
         )

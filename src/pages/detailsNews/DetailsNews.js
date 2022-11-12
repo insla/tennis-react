@@ -1,11 +1,11 @@
 import './DetailsNews.scss';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import useServices from '../../services/Services';
 import Spinner from '../../components/spinner/Spinner';
 import ErrorMessage from '../../components/errorMessage/ErrorMessage';
 import ErrorBoundary from '../../components/errorBoundary/ErrorBoundary';
+import { Link } from 'react-router-dom';
 
 const DetailsNews = () => {
     const [detailsNews, setDetailsNews] = useState(null);
@@ -48,7 +48,7 @@ const DetailsNews = () => {
     const items = renderDetailsNews();
     const spinner = loading ? <Spinner/> : null; 
     const errorMessage = error ? <ErrorMessage/> : null;
-
+    console.log(items)
     return (
         <section className="details-news">
             <div className="container">
@@ -56,9 +56,12 @@ const DetailsNews = () => {
                     {items}
                     {spinner}
                     {errorMessage}
-                    <Link to='/news'>
-                        <button className="button">Назад</button>
-                    </Link>
+
+                    {detailsNews?.seo.title ? 
+                        <Link to='/news' className="button">Назад</Link>
+                        : null
+                    }
+                    
                 </ErrorBoundary>
             </div>
         </section>

@@ -5,9 +5,12 @@ import { faYoutube, faVk, faTelegram, faInstagram, faFacebook, faTwitter} from '
 import { faPhone, faLocationDot, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import Modal from '../modal/Modal';
+import ModalContent from '../modalContent/ModalContent';
 
 const Footer = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const [modalActive, setModalActive] = useState(false);
     
     useEffect(() => {   
         window.addEventListener("scroll", listenToScroll);
@@ -81,10 +84,18 @@ const Footer = () => {
             </footer>
 
             {isVisible && 
-                <div className="up" onClick={() => pageUp()}>
-                    <FontAwesomeIcon className="up up__arrow" icon={faArrowUp}></FontAwesomeIcon>
+                <div className="modal-and-up modal-and-up_arrow" onClick={() => pageUp()}>
+                    <FontAwesomeIcon className="modal-and-up__icon" icon={faArrowUp}></FontAwesomeIcon>
                 </div>
             }
+
+            <div className="modal-and-up modal-and-up_modal" onClick={() => setModalActive(true)}>
+                <FontAwesomeIcon className="modal-and-up__icon" icon={faPhone}></FontAwesomeIcon>
+            </div>
+
+            <Modal active={modalActive} setActive={setModalActive} title={'Введите данные и мы вам перезвоним'}>
+                <ModalContent/>
+            </Modal>
         </>
     )
 }

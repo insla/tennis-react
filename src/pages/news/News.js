@@ -37,9 +37,7 @@ const News = () => {
                     <img src={item.img} alt={item.title}/>
                     <p>{item.time}</p>
                     <h3>{item.title}</h3>
-                    <Link to={`/news/${item.id}`}>
-                        <button className="button button_small">Подробнее</button>
-                    </Link>
+                    <Link to={`/news/${item.id}`} className="button button_small button_align-left">Подробнее</Link>
                 </div>
             ))
         )
@@ -54,7 +52,7 @@ const News = () => {
             <div className="container">
                 <ErrorBoundary>
                     <div className="news__wrapper">
-                        {spinner}
+                        {listNews.length === 0 && spinner}
                         {listNews}
                         {errorMessage}
                     </div>
