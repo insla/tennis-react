@@ -9,6 +9,19 @@
     background: linear-gradient(120deg,#2980b933,#880c0f30);
     border-radius: 10px;
     box-shadow: 7px 11px 15px rgb(0 0 0 / 20%);
+    input, textarea {
+        margin-top: 15px;
+        padding: 0 10px;
+        width: 400px;
+        height: 40px;
+        background:#eef7dbab;
+        border-radius: 10px;
+        border: none;
+        outline:none;
+        font-size: 18px;
+        box-shadow: 6px 9px 5px rgb(189 189 189);
+        resize: none;
+    }
     input:-webkit-autofill,
     input:-webkit-autofill:hover, 
     input:-webkit-autofill:focus, 
@@ -23,46 +36,6 @@
         &_mg {
             margin-top: 30px;
         }
-        input {
-            margin-top: 15px;
-            padding: 0 10px;
-            width: 400px;
-            height: 40px;
-            background:#eef7dbab;
-            border-radius: 10px;
-            border: none;
-            outline:none;
-            font-size: 18px;
-            box-shadow: 6px 9px 5px rgb(189 189 189);
-        }
-    }
-    &__number {
-        input {
-            margin-top: 15px;
-            padding: 0 10px;
-            width: 400px;
-            height: 40px;
-            background:#eef7dbab;
-            border-radius: 10px;
-            border: none;
-            outline:none;
-            font-size: 18px;
-            box-shadow: 6px 9px 5px rgb(189 189 189);
-        }
-    }
-    &__email {
-        input {
-            margin-top: 15px;
-            padding: 0 10px;
-            width: 400px;
-            height: 40px;
-            background:#eef7dbab;
-            border-radius: 10px;
-            border: none;
-            outline:none;
-            font-size: 18px;
-            box-shadow: 6px 9px 5px rgb(189 189 189);
-        }
     }
     &__text {
         margin-bottom: 40px;
@@ -72,18 +45,14 @@
             resize: none;
             margin-top: 15px;
             padding: 5px 10px;
-            background:#eef7dbab;
-            border-radius: 10px;
-            border: none;
-            outline: none;
-            font-size: 18px;
-            box-shadow: 6px 9px 5px rgb(189 189 189);
         }
     }
     &__error {
         color: red;
-        margin-left: 10px;
+        margin-left: 20px;
         font-size: 18px;
+        width: 400px;
+
     }
 }
 

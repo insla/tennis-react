@@ -3,7 +3,7 @@ import { Formik, Field, ErrorMessage, Form} from 'formik';
 import * as Yup from 'yup';
 import MaskedInput from 'react-text-mask';
 
-const ModalContent = () => {
+const ModalContent = ({setFormSent, setActive}) => {
     const phoneNumberMask = [
         "+",
         "7",
@@ -42,6 +42,15 @@ const ModalContent = () => {
             onSubmit = {(value, {resetForm}) => {
                 console.log(JSON.stringify(value, null, 2))
                 resetForm({ values: ''})
+                setFormSent(true)
+
+                setTimeout(() => {
+                    setActive(false)
+                }, 3000)
+
+                setTimeout(() => {
+                    setFormSent(false)
+                }, 4000)
             }}
             >
             <Form

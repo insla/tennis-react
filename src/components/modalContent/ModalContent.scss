@@ -17,17 +17,24 @@
         font-size: 18px;
         box-shadow: 6px 9px 5px rgb(189 189 189);
     }
-    &__input {
-
-    }
-    &__number {
-
-    }
     &__error {
         color: red;
         margin-left: 20px;
         font-size: 18px;
         text-align: left;
         width: 400px;
+    }
+    @media (max-width: 767px) {
+        width: 280px;
+        height: 250px;
+        input {
+            width: 250px;
+            margin-top: 20px;
+        }
+        &__error {
+            width: 280px;
+            margin-left: 50px;
+
+        }
     }
 }

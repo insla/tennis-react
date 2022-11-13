@@ -2,14 +2,16 @@ import Club from "./club/Club";
 import Courts from "./courts/Courts";
 import Assist from "./assist/Assist";
 import Coach from "./coach/Coach";
+import FixButton from "./fixButton/FixButton";
 
 const Main = () => {
     return (
         <>
-            <Club/>
+            {/* <Club/>
             <Courts/>
             <Assist/>
-            <Coach/>
+            <Coach/> */}
+            <FixButton/>
         </>
     )
 }
