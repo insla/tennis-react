@@ -9,7 +9,16 @@
         color: #fff;
         font-size: 60px;
     }
+    @media (max-width: 992px) {
+        &_another-pages{
+            font-size: 38px;
+        }
+    }
     @media (max-width: 767px ) {
         font-size: 26px;
+        &_another-pages{
+            font-size: 30px;
+            max-width: 700px;
+        }
     }
 }

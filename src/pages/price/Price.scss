@@ -1,19 +1,6 @@
 .price {
-    &__title-and-search {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 70px;
-    }
     &__wrapper-for-search {
-        margin-right: 28px;
-        display: flex;
-        width: 700px;
-
-        // input[type="search"]::-webkit-search-decoration,
-        // input[type="search"]::-webkit-search-cancel-button,
-        // input[type="search"]::-webkit-search-results-button,
-        // input[type="search"]::-webkit-search-results-decoration { display: none; }
-        // delete default icon close
+        margin-top: 70px;
     }
     &__button {
         height: 50px;
@@ -105,5 +92,44 @@
         height: 1px;
         background: rgba(0,0,0,.2392156863);
         margin: 20px auto;
+    }
+    @media (max-width: 1200px) {
+        &__plan {
+            width: 280px;
+            padding-bottom: 100px;
+            min-height: 410px;
+        }
+        &__items {
+            li {
+                font-size: 20px;
+            }
+        }
+        &__subtitle {
+            font-size: 20px;
+        }
+    }
+    @media (max-width: 992px) {
+
+    }
+    @media (max-width: 767px) {
+        &__plan {
+            width: 340px;
+        }
+        &__wrapper-for-search{
+            margin-top: 30px;
+        }
+        &__wrapper-for-search {
+            width: 320px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            button {
+                margin-top: 15px;
+            }
+        }
+        &__wrapper {
+            justify-content: center;
+            gap: 35px;
+        }
     }
 }

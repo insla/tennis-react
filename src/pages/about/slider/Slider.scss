@@ -44,4 +44,21 @@
             }
         }
     }
+    @media (max-width: 767px) {
+        margin-top: 50px;
+        &__wrapper {
+            margin-top: 30px;
+        }
+        &__wrapper {
+            display: block;
+        }
+        &__slide {
+            height: 300px;
+            margin: 10px 0;
+            & h3 {
+                opacity: 1;
+                font-size: 20px;
+            }
+        }
+    }
 }

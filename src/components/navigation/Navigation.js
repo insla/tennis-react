@@ -3,7 +3,7 @@ import logo from '../../resources/img/main_page/logo.png';
 import arrowDown from '../../resources/icons/arrow-down.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube, faVk, faTelegram } from '@fortawesome/free-brands-svg-icons';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 

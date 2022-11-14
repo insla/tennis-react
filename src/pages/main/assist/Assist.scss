@@ -82,4 +82,33 @@
         left: 0;
         transition: background .3s cubic-bezier(.33,.66,.66,1);
     }
+    @media (max-width: 1200px) {
+        &__card {
+            p {
+                font-size: 23px;
+                margin: 0 10px 30px;
+            }
+        }
+    }
+    @media (max-width: 992px) {
+        &__card {
+            height: 300px;
+            &:hover {
+                .assist__title p {
+                    top: -92%;
+                }        
+            }
+        }
+    } 
+    @media (max-width: 767px) {
+        margin-top: 50px;
+        &__wrapper {
+            margin-top: 30px;
+            flex-direction: column;            
+        }
+        &__card {
+            width: 100%;
+
+        }
+    }
 }

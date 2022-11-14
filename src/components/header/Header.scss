@@ -272,6 +272,10 @@
 .heading_size {
     padding-top: 100px;
     height: 400px;
+    @media (max-width: 992px) {
+        height: 300px;
+        padding: 50px 0;
+    }
 }
 
 .heading, .navigation{
@@ -284,41 +288,73 @@
     background: url('../../resources/img/about/about-main.jpg') rgb(66, 66, 66) center (center/cover) no-repeat;
     background-size: 100%;
     background-attachment: fixed;
+    @media (max-width: 767px) {
+        background: url('../../resources/img/about/about-main.jpg') 0px -110px no-repeat;
+        background-size: 100%;
+        background-attachment: fixed;
+    }
 }
 
 .heading_contacts, .navigation_contacts{
     background: url('../../resources/img/contacts/contacts-main.jpg') rgb(66, 66, 66) center (center/cover) no-repeat;
     background-size: 100%;
     background-attachment: fixed;
+    @media (max-width: 767px) {
+        background: url('../../resources/img/contacts/contacts-main.jpg') 0px -110px no-repeat;
+        background-size: 100%;
+        background-attachment: fixed;
+    }
 }
-
 
 .heading_price, .navigation_price {
     background: url('../../resources/img/price/price-main.jpg') rgb(66, 66, 66) center (center/cover) no-repeat;
     background-size: 100%;
     background-attachment: fixed;
+    @media (max-width: 992px) {
+        background: url('../../resources/img/price/price-main.jpg') 0px -110px no-repeat;
+        background-size: 100%;
+        background-attachment: fixed;
+    }
 }
 
 .heading_kids, .navigation_kids {
     background: url('../../resources/img/kids/kids-main.jpg') rgb(66, 66, 66) center (center/cover) no-repeat;
     background-size: 100%;
     background-attachment: fixed;
+    @media (max-width: 767px) {
+        background: url('../../resources/img/kids/kids-main.jpg') 0px -110px no-repeat;
+        background-size: 100%;
+        background-attachment: fixed;
+    }
 }
-
 .heading_personal, .navigation_personal {
     background: url('../../resources/img/personal/personal-main.jpg') rgb(66, 66, 66) center (center/cover) no-repeat;
     background-size: 100%;
     background-attachment: fixed;
+    @media (max-width: 767px) {
+        background: url('../../resources/img/personal/personal-main.jpg') 0px -10px no-repeat;
+        background-size: 100%;
+        background-attachment: fixed;
+    }
 }
-
 .heading_group, .navigation_group {
     background: url('../../resources/img/grpup/group-main.jpg') rgb(66, 66, 66) center (center/cover) no-repeat;
     background-size: 100%;
     background-attachment: fixed;
+    @media (max-width: 767px) {
+        background: url('../../resources/img/grpup/group-main.jpg') 0px -10px no-repeat;
+        background-size: 100%;
+        background-attachment: fixed;
+    }
 }
 
 .heading_news, .navigation_news {
     background: url('../../resources/img/news/news-main.jpg') rgb(66, 66, 66) center (center/cover) no-repeat;
     background-size: 100%;
     background-attachment: fixed;
+    @media (max-width: 767px) {
+        background: url('../../resources/img/news/news-main.jpg') 0px -110px no-repeat;
+        background-size: 100%;
+        background-attachment: fixed;
+    }
 }

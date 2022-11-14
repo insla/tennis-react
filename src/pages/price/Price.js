@@ -60,37 +60,31 @@ const Price = () => {
         <section className="price">
             <div className="container">
                 <ErrorBoundary>
-                    <div className="price__title-and-search">
-                        
-                        <div className="price__wrapper-for-search">
-                            <button 
-                                className="price__button" 
-                                onClick={() => setFilterCard(filterCard !== 1 ? 1 : 0)}
-                                style={filterCard === 1 ? {border: "3px solid #000"} : null}>
-                                ИНДИВИДУАЛЬНЫЕ 
-                            </button>
-                            <button 
-                                className="price__button price__button_mg" 
-                                onClick={() => setFilterCard(filterCard !== 2 ? 2 : 0)}
-                                style={filterCard === 2 ? {border: "3px solid #000"} : null}>
-                                ГРУППОВЫЕ
-                            </button>
-                            <button 
-                                className="price__button" 
-                                onClick={() => setFilterCard(filterCard !== 3 ? 3 : 0)}
-                                style={filterCard === 3 ? {border: "3px solid #000"} : null}>
-                                ДЕТИ
-                            </button>
-                        </div>
-                        
+                    <div className="price__wrapper-for-search">
+                        <button 
+                            className="price__button" 
+                            onClick={() => setFilterCard(filterCard !== 1 ? 1 : 0)}
+                            style={filterCard === 1 ? {border: "3px solid #000"} : null}>
+                            ИНДИВИДУАЛЬНЫЕ 
+                        </button>
+                        <button 
+                            className="price__button price__button_mg" 
+                            onClick={() => setFilterCard(filterCard !== 2 ? 2 : 0)}
+                            style={filterCard === 2 ? {border: "3px solid #000"} : null}>
+                            ГРУППОВЫЕ
+                        </button>
+                        <button 
+                            className="price__button" 
+                            onClick={() => setFilterCard(filterCard !== 3 ? 3 : 0)}
+                            style={filterCard === 3 ? {border: "3px solid #000"} : null}>
+                            ДЕТИ
+                        </button>
                     </div>
 
                     {filterCard === 0 || filterCard === 1 ? 
                         <div className="price__title-and-card">
-                            <div>
-                                <div className="price__title">ИНДИВИДУАЛЬНЫЕ ЗАНЯТИЯ
-                                    <p>01</p>
-                                </div>
+                            <div className="price__title">ИНДИВИДУАЛЬНЫЕ ЗАНЯТИЯ
+                                <p>01</p>
                             </div>
 
                             <div className="price__wrapper">

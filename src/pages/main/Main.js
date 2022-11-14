@@ -7,10 +7,10 @@ import FixButton from "./fixButton/FixButton";
 const Main = () => {
     return (
         <>
-            {/* <Club/>
+            <Club/>
             <Courts/>
             <Assist/>
-            <Coach/> */}
+            <Coach/>
             <FixButton/>
         </>
     )

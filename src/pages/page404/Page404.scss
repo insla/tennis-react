@@ -24,4 +24,20 @@
             color: rgb(255, 0, 0)
         }
     }
+    @media (max-width: 992px) {
+        p {
+            top: -290px;
+        }
+    }
+    @media (max-width: 767px) {
+        width: 100%;
+        p {
+            color: #fff;
+            top: -190px;
+        }
+        a {
+            width: 300px;
+            margin: 0 auto;
+        }
+    }
 }

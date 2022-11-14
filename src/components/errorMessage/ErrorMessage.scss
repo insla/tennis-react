@@ -1,5 +1,11 @@
 .error-message {
     margin: 0 auto;
     height: 350px;
-    object-fit: contain;
+    object-fit: cover;
+    @media (max-width: 992px) {
+        height: 300px;
+    }
+    @media (max-width: 767px) {
+        height: 150px;
+    }
 }

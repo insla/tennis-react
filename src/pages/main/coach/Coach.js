@@ -7,10 +7,12 @@ import arrowLeft from '../../../resources/icons/arrow_left.png';
 import arrowRight from '../../../resources/icons/arrow_right.png';
 import ErrorMessage from '../../../components/errorMessage/ErrorMessage';
 import Spinner from '../../../components/spinner/Spinner';
+import { useMediaQuery } from 'react-responsive';
 
 const Coach = () => {
     const [coach, setCoach] = useState([]) 
 
+    const isMobile = useMediaQuery({query: `(max-width: 767px)`})
     const { getLocalData, clearError, loading, error } = useServices();
 
     useEffect(() => {
@@ -65,13 +67,13 @@ const Coach = () => {
                     infinite={true} 
                     lockOnWindowScroll={true}
                     isIntrinsicHeight={true} 
-                    visibleSlides={3} 
+                    visibleSlides={isMobile ? 1 : 3} 
                     currentSlide={1}>
                         <Slider>
                             {items}
                         </Slider>
-                        <ButtonBack className='coach__button-left'><img src={arrowLeft} alt="arrowLeft" /></ButtonBack>
-                        <ButtonNext className='coach__button-right'><img src={arrowRight} alt="arrowRight" /></ButtonNext>
+                        {!isMobile && <ButtonBack className='coach__button-left'><img src={arrowLeft} alt="arrowLeft" /></ButtonBack>}
+                        {!isMobile && <ButtonNext className='coach__button-right'><img src={arrowRight} alt="arrowRight" /></ButtonNext>}
                         <DotGroup ></DotGroup>
                 </CarouselProvider>
             </div>

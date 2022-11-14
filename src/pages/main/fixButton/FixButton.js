@@ -17,7 +17,7 @@ const FixButton = () => {
     }, [])
     
     const listenToScroll = () => {
-        const heightToHideFrom = 0;
+        const heightToHideFrom = 800;
         const winScroll = document.documentElement.scrollTop;
 
         winScroll > heightToHideFrom ? setIsVisible(true) : setIsVisible(false)
