@@ -36,7 +36,10 @@ const DetailsNews = () => {
                         detailsNews?.body
                             .filter(item => item.type === 'editor_block')
                             .map((item, i) => {
-                                return ( <p key={i}>{item.data.content.slice(3, -4)}</p> )
+                                const strongText = item.data.content.includes('<strong>')
+                                const textContentArticle = strongText ? item.data.content.slice(11, -13) : item.data.content.slice(3, -4)
+
+                                return ( <p key={i} style={strongText? {fontWeight: '700'} : null}>{textContentArticle}</p> )
                             })
                     }
 
