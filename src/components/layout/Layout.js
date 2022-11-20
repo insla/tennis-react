@@ -1,5 +1,6 @@
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
+import FixButton from '../../components/fixButton/FixButton';
 
 const Layout = ({children}) => {
     return (
@@ -7,6 +8,7 @@ const Layout = ({children}) => {
             <Header/>
                 <main>{children}</main>
             <Footer/>
+            <FixButton/>
         </>
     )
 }

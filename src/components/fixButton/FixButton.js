@@ -1,6 +1,6 @@
 import './FixButton.scss';
-import Modal from '../../../components/modal/Modal';
-import ModalContent from '../../../components/modalContent/ModalContent';
+import Modal from '../modal/Modal';
+import ModalContent from '../modalContent/ModalContent';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';

@@ -2,7 +2,6 @@ import Club from "./club/Club";
 import Courts from "./courts/Courts";
 import Assist from "./assist/Assist";
 import Coach from "./coach/Coach";
-import FixButton from "./fixButton/FixButton";
 
 const Main = () => {
     return (
@@ -11,7 +10,6 @@ const Main = () => {
             <Courts/>
             <Assist/>
             <Coach/>
-            <FixButton/>
         </>
     )
 }

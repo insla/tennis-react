@@ -1,7 +1,9 @@
 import './Club.scss';
 import sportClub from '../../../resources/img/main_page/sport_club.png';
+import { useMediaQuery } from 'react-responsive';
 
 const Club = () => {
+    const isMobile = useMediaQuery({query: `(max-width: 767px)`})
     
     return (
         <section className="club">
@@ -9,7 +11,7 @@ const Club = () => {
                 <div className="club__img" data-aos="zoom-in-down" data-aos-offset="200" data-aos-duration="1000">
                     <img src={sportClub} alt="sport_club"/>
                 </div>
-                <div className="club__info" data-aos="zoom-in-down" data-aos-offset="200" data-aos-duration="1000">
+                <div className="club__info" data-aos={isMobile ? 'none' : "zoom-in-down"} data-aos-offset="200" data-aos-duration="1000">
                     <h2>Теннисный клуб</h2>
                     <p>
                         Школа большого тенниса — это не просто место, куда приходят заниматься. Это клуб настоящих энтузиастов тенниса, где вы сможете знакомиться, общаться, дружить, отдыхать. <br/><br/>
